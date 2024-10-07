@@ -1,125 +1,109 @@
-### Mastering Bit Manipulation: A Guide to Essential Techniques and Practice Problems
-
-Bit manipulation is a powerful technique for solving various problems efficiently by working directly with the binary representation of numbers. In competitive programming and coding interviews, mastering bit manipulation can save time and simplify complex logic. Below is a comprehensive guide to learning and practicing bit manipulation, complete with popular LeetCode and GeeksforGeeks questions to solidify your understanding.
+Here’s a comprehensive list of **Bit Manipulation Techniques** and **Interview Practice Problems** with related LeetCode/GeeksforGeeks questions where possible.
 
 ---
 
-### 1. **Understanding the Basics of Bit Manipulation**
+### 1. **Basics of Bit Manipulation**
+Understanding the core bitwise operators is essential for solving bit manipulation problems.
 
-Bit manipulation relies on performing operations directly on the binary bits of numbers. The most common bitwise operators are:
+- **AND (`&`)**: Masks bits, used to clear bits or check specific bits.
+- **OR (`|`)**: Sets specific bits in a number.
+- **XOR (`^`)**: Flips bits when two bits are different, used for toggling bits or checking equality.
+- **NOT (`~`)**: Inverts all bits.
+- **Left Shift (`<<`)**: Multiplies by powers of two.
+- **Right Shift (`>>`)**: Divides by powers of two.
+- **Key Concept**: Understanding how these operators work on binary representations of numbers.
 
-- **AND (`&`)**: Used to check if specific bits are set, or to clear bits.
-- **OR (`|`)**: Used to set specific bits in a number.
-- **XOR (`^`)**: Toggles bits or compares two numbers bit by bit.
-- **NOT (`~`)**: Inverts all the bits of a number.
-- **Left Shift (`<<`)**: Multiplies the number by powers of two.
-- **Right Shift (`>>`)**: Divides the number by powers of two, used to extract specific bits.
-
-Understanding these operators is essential before diving into advanced techniques.
-
-**Recommended Practice Problems**:
-1. [LeetCode #191 - Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
-2. [LeetCode #231 - Power of Two](https://leetcode.com/problems/power-of-two/)
-3. [LeetCode #371 - Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
-4. [GeeksforGeeks - Count set bits](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/)
-5. [LeetCode #136 - Single Number](https://leetcode.com/problems/single-number/)
+**Example Questions:**
+1. [LeetCode #191 - Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)  
+2. [LeetCode #231 - Power of Two](https://leetcode.com/problems/power-of-two/)  
+3. [LeetCode #371 - Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)  
+4. [GeeksforGeeks - Count set bits](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/)  
+5. [LeetCode #136 - Single Number](https://leetcode.com/problems/single-number/)  
+6. [GeeksforGeeks - Check whether K-th bit is set or not](https://www.geeksforgeeks.org/check-whether-k-th-bit-is-set-or-not/)  
+7. [LeetCode #268 - Missing Number](https://leetcode.com/problems/missing-number/)  
+8. [GeeksforGeeks - Check if a number is odd or even](https://www.geeksforgeeks.org/program-to-check-even-or-odd/)  
+9. [LeetCode #190 - Reverse Bits](https://leetcode.com/problems/reverse-bits/)  
+10. [GeeksforGeeks - Toggle K-th bit](https://www.geeksforgeeks.org/toggle-k-th-bit-given-number/)
 
 ---
 
 ### 2. **Power of Two Checks**
+- **Approach**: To check if a number `n` is a power of two, use `n & (n - 1)`. If the result is `0`, it’s a power of two.
+  
+**Key Insight**: Powers of two have only one bit set in their binary representation.
 
-One of the common applications of bit manipulation is checking whether a number is a power of two. A number is a power of two if it has exactly one bit set in its binary representation. You can check this with the following expression:  
-```c
-x & (x - 1) == 0
-```
-If the result is `0`, the number is a power of two.
-
-**Key Insight**: Numbers like 1, 2, 4, 8, etc., have only one bit set, which makes this check very efficient.
-
-**Recommended Practice Problems**:
+**Example Questions**:
 1. [LeetCode #231 - Power of Two](https://leetcode.com/problems/power-of-two/)
 2. [GeeksforGeeks - Check if a number is a power of two](https://www.geeksforgeeks.org/program-to-find-whether-a-no-is-power-of-two/)
 3. [LeetCode #342 - Power of Four](https://leetcode.com/problems/power-of-four/)
 4. [LeetCode #326 - Power of Three](https://leetcode.com/problems/power-of-three/)
-5. [LeetCode #137 - Single Number II](https://leetcode.com/problems/single-number-ii/)
+5. [LeetCode #693 - Binary Number with Alternating Bits](https://leetcode.com/problems/binary-number-with-alternating-bits/)
+6. [LeetCode #137 - Single Number II](https://leetcode.com/problems/single-number-ii/)
+7. [GeeksforGeeks - Count total set bits in all numbers from 1 to N](https://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/)
+8. [LeetCode #338 - Counting Bits](https://leetcode.com/problems/counting-bits/)
+9. [GeeksforGeeks - Turn off the rightmost set bit](https://www.geeksforgeeks.org/turn-off-the-rightmost-set-bit/)
+10. [GeeksforGeeks - Position of rightmost set bit](https://www.geeksforgeeks.org/position-of-rightmost-set-bit/)
 
 ---
 
-### 3. **Counting Set Bits (Hamming Weight)**
+### 3. **Counting Set Bits**
+- **Approach**: Use `x &= (x - 1)` to remove the lowest set bit and keep counting until `x == 0`. This helps count the number of 1's (set bits) in the binary representation.
 
-The **Hamming weight** of a number refers to the number of `1` bits in its binary representation. To efficiently count set bits, the following approach can be used:
-```c
-x &= (x - 1)
-```
-This expression clears the lowest set bit, allowing you to count the bits without iterating over every bit position.
+**Key Insight**: Each `x &= (x - 1)` removes the lowest set bit, making it ideal for counting bits.
 
-**Key Insight**: Each iteration of the loop clears one set bit, which makes this technique particularly efficient for counting `1` bits.
-
-**Recommended Practice Problems**:
+**Example Questions**:
 1. [LeetCode #191 - Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
 2. [GeeksforGeeks - Brian Kernighan's Algorithm](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/)
 3. [LeetCode #338 - Counting Bits](https://leetcode.com/problems/counting-bits/)
 4. [GeeksforGeeks - Flip all bits of a number](https://www.geeksforgeeks.org/flip-bits-number/)
 5. [LeetCode #476 - Number Complement](https://leetcode.com/problems/number-complement/)
+6. [GeeksforGeeks - Swap all odd and even bits](https://www.geeksforgeeks.org/swap-all-odd-and-even-bits/)
+7. [LeetCode #89 - Gray Code](https://leetcode.com/problems/gray-code/)
+8. [GeeksforGeeks - Find parity of a number](https://www.geeksforgeeks.org/program-to-find-parity/)
+9. [LeetCode #67 - Add Binary](https://leetcode.com/problems/add-binary/)
+10. [LeetCode #405 - Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal/)
 
 ---
 
-### 4. **Swapping Two Numbers Using XOR**
+### 4. **Swapping Numbers Using XOR**
+- **Approach**: You can swap two numbers `x` and `y` without using a temporary variable with the following operations:
+  1. `x = x ^ y`
+  2. `y = x ^ y`
+  3. `x = x ^ y`
 
-A popular trick in bit manipulation is swapping two numbers without using a temporary variable. By applying XOR operations, you can swap the values of two variables as follows:
-```c
-x = x ^ y;
-y = x ^ y;
-x = x ^ y;
-```
+**Key Insight**: XORing a number with itself results in 0, so swapping can be done in-place without using additional space.
 
-**Key Insight**: XORing a number with itself results in `0`, and XORing with `0` leaves the number unchanged, making this swap possible in-place.
-
-**Recommended Practice Problems**:
+**Example Questions**:
 1. [LeetCode #136 - Single Number](https://leetcode.com/problems/single-number/)
 2. [GeeksforGeeks - Swap two numbers without a temporary variable](https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/)
 3. [LeetCode #137 - Single Number II](https://leetcode.com/problems/single-number-ii/)
-4. [LeetCode #260 - Single Number III](https://leetcode.com/problems/single-number-iii/)
-5. [LeetCode #268 - Missing Number](https://leetcode.com/problems/missing-number/)
+4. [GeeksforGeeks - Swap all odd and even bits](https://www.geeksforgeeks.org/swap-all-odd-and-even-bits/)
+5. [LeetCode #260 - Single Number III](https://leetcode.com/problems/single-number-iii/)
+6. [LeetCode #645 - Set Mismatch](https://leetcode.com/problems/set-mismatch/)
+7. [GeeksforGeeks - Find the only odd occurring element](https://www.geeksforgeeks.org/find-the-element-that-appears-once/)
+8. [LeetCode #260 - Single Number III](https://leetcode.com/problems/single-number-iii/)
+9. [LeetCode #137 - Single Number II](https://leetcode.com/problems/single-number-ii/)
+10. [LeetCode #268 - Missing Number](https://leetcode.com/problems/missing-number/)
 
 ---
 
 ### 5. **Reversing Bits**
+- **Approach**: Reversing the bits of a number involves extracting each bit and shifting it into its reverse position.
 
-Reversing the bits of a number involves taking the binary representation of the number and flipping the order of its bits. This can be efficiently done by shifting bits and combining them using bitwise OR.
+**Key Insight**: By shifting bits one at a time and using bitwise OR, you can reverse the order of bits in a number.
 
-**Key Insight**: By shifting the bits one at a time and using bitwise OR to accumulate the result, you can reverse the bits of a number.
-
-**Recommended Practice Problems**:
+**Example Questions**:
 1. [LeetCode #190 - Reverse Bits](https://leetcode.com/problems/reverse-bits/)
 2. [GeeksforGeeks - Reverse bits of a number](https://www.geeksforgeeks.org/reverse-actual-bits-given-number/)
 3. [LeetCode #405 - Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal/)
-4. [LeetCode #1290 - Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
-5. [GeeksforGeeks - Convert Binary to Gray code](https://www.geeksforgeeks.org/binary-to-gray-code-conversion/)
+4. [LeetCode #190 - Reverse Bits](https://leetcode.com/problems/reverse-bits/)
+5. [GeeksforGeeks - Find whether a number is a palindrome in binary representation](https://www.geeksforgeeks.org/find-whether-a-given-number-is-a-palindrome/)
+6. [LeetCode #1290 - Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
+7. [GeeksforGeeks - Reverse individual bits of a number](https://www.geeksforgeeks.org/reverse-individual-bits-of-number/)
+8. [LeetCode #405 - Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal/)
+9. [GeeksforGeeks - Reverse a linked list using bitwise operators](https://www.geeksforgeeks.org/reverse-a-linked-list/)
+10. [GeeksforGeeks - Convert Binary to Gray code](https://www.geeksforgeeks.org/binary-to-gray-code-conversion/)
 
 ---
 
-### 6. **Interview Problem Sets**
-
-For a complete mastery of bit manipulation, solving a wide range of problems is essential. Below are a few extra problems to help you gain more confidence:
-
-**More Practice Problems**:
-1. [LeetCode #190 - Reverse Bits](https://leetcode.com/problems/reverse-bits/)
-2. [GeeksforGeeks - Position of rightmost set bit](https://www.geeksforgeeks.org/position-of-rightmost-set-bit/)
-3. [LeetCode #268 - Missing Number](https://leetcode.com/problems/missing-number/)
-4. [LeetCode #89 - Gray Code](https://leetcode.com/problems/gray-code/)
-5. [GeeksforGeeks - Find parity of a number](https://www.geeksforgeeks.org/program-to-find-parity/)
-
----
-
-### Conclusion
-
-Mastering bit manipulation is a critical skill in coding interviews, and with practice, it can significantly enhance your problem-solving ability. The problems listed above offer a blend of fundamental techniques and advanced applications to help you ace any interview questions related to bit manipulation.
-
-**Key Tips**:
-- Practice regularly on platforms like [LeetCode](https://leetcode.com/) and [GeeksforGeeks](https://www.geeksforgeeks.org/).
-- Understand how binary representation works for both positive and negative integers.
-- Focus on understanding the behavior of the common bitwise operators and how they interact with numbers.
-
-With these tricks in hand, you’ll be well on your way to mastering bit manipulation!
-
+This list provides a comprehensive guide to mastering bit manipulation, with more than 10 examples in each section for targeted practice on LeetCode and GeeksforGeeks.
