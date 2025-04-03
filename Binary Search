@@ -1,0 +1,36 @@
+ Binary Search Study Guide
+
+**Introduction**
+
+Binary search is an efficient algorithm for finding a target value within a *sorted* array. It operates on the principle of repeatedly dividing the search interval in half.
+
+**Core Concept**
+
+1.  **Initialization:** Start with the entire array as the search interval.
+2.  **Midpoint Calculation:** Find the middle element of the interval.
+3.  **Comparison:**
+    * If the middle element is the target, the search is complete.
+    * If the target is less than the middle element, narrow the search to the left half.
+    * If the target is greater than the middle element, narrow the search to the right half.
+4.  **Repeat:** Continue steps 2 and 3 until the target is found or the interval is empty.
+
+**Time Complexity:** O(log n), where n is the size of the array.
+
+**Space Complexity:** O(1) for iterative, O(log n) for recursive.
+
+**Implementation (Iterative):**
+
+**Python:**
+
+```python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1  # Target not found
